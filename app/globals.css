@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer components {
+  .marquee {
+    @apply overflow-hidden whitespace-nowrap;
+  }
+
+  .marquee__wrap {
+    @apply inline-block animate-marquee;
+  }
+
+  .marquee__tile {
+    @apply inline-block mx-4;
+  }
+
+  .testimonial {
+    @apply bg-white p-6 rounded-lg shadow-lg;
+  }
+
+  .testimonial__cite {
+    @apply mt-4 border-t pt-4;
+  }
+
+  .platform {
+    @apply relative overflow-hidden rounded-xl p-8 transition-all hover:scale-105;
+  }
+
+  .platform__hover__image {
+    @apply absolute inset-0 opacity-0 transition-opacity hover:opacity-20;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
